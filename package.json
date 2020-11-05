@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --exec babel-node ./api/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node ./api/index.js",
+    "heroku-postbuild": "npm run build",
+    "lint": "eslint --fix --ext .js,.jsx ."
   },
   "repository": {
     "type": "git",
