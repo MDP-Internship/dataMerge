@@ -3,7 +3,7 @@ import irregular from "./routes/irregular"
 import regular from "./routes/regular"
 import bodyParser from "body-parser"
 import mongoose from "mongoose"
-const app = express()
+const app = express();
 
 app.use(bodyParser.json());
 
