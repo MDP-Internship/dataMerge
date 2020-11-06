@@ -39,6 +39,8 @@
 
 ## Datalar
 
+### input
+
 ```json
 [
   {
@@ -48,6 +50,20 @@
   },
   {
     "id": 1,
+    "name": "Ulrick",
+    "username": "umctrustrie0"
+  }
+]
+```
+
+### output
+
+```json
+[
+  {
+    "id": 1,
+    "mail": "bgilstin0@wiley.com",
+    "adress": "8 Park Meadow Terrace",
     "name": "Ulrick",
     "username": "umctrustrie0"
   }
