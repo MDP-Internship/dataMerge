@@ -10,22 +10,26 @@
 
 ## Gereksinimler
 
+### VScode Eklenti
+
+> GET işlemlerinin testleri burada yapıldı [RESTClient](https://github.com/Huachao/vscode-restclient)
+
 ### Paketler
 
 - body-parser
-  mongoose
+- mongoose
 
-Object.assign()
+### TODO
 
-const spread = { ...first, ...second }
+> Object.assign() => objeleri birleştirebilmemizi sağlıyor.
 
-[stackoverflow(Solved)](https://stackoverflow.com/questions/39844558/merge-json-arrays-by-matching-property-in-nodejs)
+> const spread = { ...first, ...second }
 
-node js performans ölçme
+> [stackoverflow(Solved)](https://stackoverflow.com/questions/39844558/merge-json-arrays-by-matching-property-in-nodejs)
 
-Array özelliklerini araştır
+> Array özelliklerini araştır
 
-[medium](https://medium.com/@thrkardak/javascript-map-reduce-ve-filter-b%C3%B6l%C3%BCm-1-bfc7cd18f1e)
+> [medium](https://medium.com/@thrkardak/javascript-map-reduce-ve-filter-b%C3%B6l%C3%BCm-1-bfc7cd18f1e)
 
 ## Path
 
@@ -68,10 +72,12 @@ Array özelliklerini araştır
 },
 ```
 
+### idlerine göre düzensiz veri modellerini birleştiriyor
+
 ```javascript
-let idList = new Set(data.map(item => item.id));
-idList.forEach(id=>{
-let merge = Object.assign({}, ...data.filter(item=> item.id ==id))
-console.log(merge);
+let idList = new Set(data.map((item) => item.id));
+idList.forEach((id) => {
+  let merge = Object.assign({}, ...data.filter((item) => item.id == id));
+  console.log(merge);
 });
 ```
