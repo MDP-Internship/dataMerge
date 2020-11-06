@@ -1,6 +1,11 @@
 # dataMerge
 
-[[TOC]]
+> Toplu halde gelen düzensiz verileri id numaralarına göre eşleştirerek verileri birleştiriyor ve mongodb kaydediyor.
+
+### Link: https://peopledatamerge.herokuapp.com/
+
+- "/irregular" veriler toplanıyor.
+- "/regular" veriler gösteriliyor.
 
 ## Kurulumlar
 
@@ -18,6 +23,7 @@
 
 - body-parser
 - mongoose
+- express
 
 ### TODO
 
@@ -31,45 +37,31 @@
 
 > [medium](https://medium.com/@thrkardak/javascript-map-reduce-ve-filter-b%C3%B6l%C3%BCm-1-bfc7cd18f1e)
 
-## Path
-
-- "/irregular" veriler toplanıyor.
-- "/regular" veriler gösteriliyor.
-
-> GET ve POST çalışacak şekilde gönderim body şeklinde
-
 ## Datalar
 
-### https://jsonplaceholder.typicode.com/posts
-
 ```json
-{
-"userId": 1,
-"id": 1,
-"title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-"body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-},
+[
+  {
+    "id": 1,
+    "mail": "bgilstin0@wiley.com",
+    "adress": "8 Park Meadow Terrace"
+  },
+  {
+    "id": 1,
+    "name": "Ulrick",
+    "username": "umctrustrie0"
+  }
+]
 ```
 
-### https://jsonplaceholder.typicode.com/albums
+> mongo db şemasına göre hazırlanmıştır.
 
-```json
-{
-"userId": 1,
-"id": 1,
-"title": "quidem molestiae enim"
-},
-```
-
-### https://jsonplaceholder.typicode.com/todos
-
-```json
-{
-"userId": 1,
-"id": 1,
-"title": "delectus aut autem",
-"completed": false
-},
+```js
+id;
+mail;
+adress;
+name;
+username;
 ```
 
 ### idlerine göre düzensiz veri modellerini birleştiriyor
