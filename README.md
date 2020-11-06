@@ -25,6 +25,8 @@ node js performans ölçme
 
 Array özelliklerini araştır
 
+[medium](https://medium.com/@thrkardak/javascript-map-reduce-ve-filter-b%C3%B6l%C3%BCm-1-bfc7cd18f1e)
+
 ## Path
 
 - "/irregular" veriler toplanıyor.
@@ -64,4 +66,12 @@ Array özelliklerini araştır
 "title": "delectus aut autem",
 "completed": false
 },
+```
+
+```javascript
+let idList = new Set(data.map(item => item.id));
+idList.forEach(id=>{
+let merge = Object.assign({}, ...data.filter(item=> item.id ==id))
+console.log(merge);
+});
 ```

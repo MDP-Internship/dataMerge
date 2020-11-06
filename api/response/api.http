@@ -1,0 +1,110 @@
+@host= http://localhost:3000
+# @query=?long=39.25322010853384&lat=33.24331911328855
+GET {{host}}/irregular HTTP/1.1
+
+###
+GET {{host}}/irregular HTTP/1.1
+content-type: application/json
+
+  [{
+    "id": 1,
+    "mail": "bgilstin0@wiley.com",
+    "adress": "8 Park Meadow Terrace"
+  },
+  {
+    "id": 2,
+    "mail": "omacsporran1@ebay.co.uk",
+    "adress": "24561 Fisk Lane"
+  },
+  {
+    "id": 3,
+    "mail": "smagrannell2@ucsd.edu",
+    "adress": "3 Sherman Point"
+  },
+  {
+    "id": 4,
+    "mail": "wjermey3@miitbeian.gov.cn",
+    "adress": "7431 Crowley Street"
+  },
+  {
+    "id": 5,
+    "mail": "irowcliffe4@smh.com.au",
+    "adress": "7852 Barnett Place"
+  },
+  {
+    "id": 6,
+    "mail": "tholttom5@sun.com",
+    "adress": "4 Hazelcrest Trail"
+  },
+  {
+    "id": 7,
+    "mail": "smenpes6@drupal.org",
+    "adress": "65 Autumn Leaf Pass"
+  },
+  {
+    "id": 8,
+    "mail": "acreamer7@sbwire.com",
+    "adress": "71905 Hudson Crossing"
+  },
+  {
+    "id": 9,
+    "mail": "kwolfart8@mlb.com",
+    "adress": "91465 Springs Road"
+  },
+  {
+    "id": 10,
+    "mail": "gleestut9@e-recht24.de",
+    "adress": "15213 Burning Wood Plaza"
+  },
+  {
+    "id": 1,
+    "name": "Ulrick",
+    "username": "umctrustrie0"
+  },
+  {
+    "id": 2,
+    "name": "Sharona",
+    "username": "swardell1"
+  },
+  {
+    "id": 3,
+    "name": "Amandi",
+    "username": "aevenden2"
+  },
+  {
+    "id": 4,
+    "name": "Almire",
+    "username": "agillings3"
+  },
+  {
+    "id": 5,
+    "name": "Karlyn",
+    "username": "kgippes4"
+  },
+  {
+    "id": 6,
+    "name": "Kasper",
+    "username": "kmcilwreath5"
+  },
+  {
+    "id": 7,
+    "name": "Belinda",
+    "username": "bblagden6"
+  },
+  {
+    "id": 8,
+    "name": "Vanya",
+    "username": "vscatchard7"
+  },
+  {
+    "id": 9,
+    "name": "Jae",
+    "username": "jreiner8"
+  },
+  {
+    "id": 10,
+    "name": "Hayden",
+    "username": "hleestut9"
+  }]
+
+###
