@@ -1,7 +1,7 @@
-import { Router } from "express";
-import irregularController from "../controllers/irregularController";
+import { Router } from 'express'
+import irregularController from '../controllers/irregularController'
 
-const router = Router();
-router.get("/", irregularController);
+const router = Router()
+router.get('/', irregularController)
 
-export default router;
+export default router

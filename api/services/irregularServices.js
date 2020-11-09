@@ -1,4 +1,4 @@
-import People from "../model/people";
+import People from '../model/people'
 
 export default class IrregularServices {
   static peopleAdd(body) {
@@ -8,12 +8,12 @@ export default class IrregularServices {
       adress: body.adress,
       name: body.name,
       username: body.username,
-    });
+    })
 
     peopleAdd
       .save()
       .then(() => {})
-      .catch(() => {});
+      .catch(() => {})
   }
 
   // console.log(body);

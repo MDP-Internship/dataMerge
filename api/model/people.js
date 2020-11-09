@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model } from 'mongoose'
 
 const newsSchema = Schema({
   id: {
@@ -16,6 +16,6 @@ const newsSchema = Schema({
   username: {
     type: String,
   },
-});
+})
 
-export default model("People", newsSchema);
+export default model('People', newsSchema)
