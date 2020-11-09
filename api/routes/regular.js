@@ -1,5 +1,5 @@
 import { Router } from "express";
-import regularController from "../controllers/regularController"
+import regularController from "../controllers/regularController";
 
 const router = Router();
 router.get("/", regularController);

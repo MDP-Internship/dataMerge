@@ -1,44 +1,47 @@
 import express from 'express'
-import irregular from "./routes/irregular"
-import regular from "./routes/regular"
-import bodyParser from "body-parser"
-import mongoose from "mongoose"
-const app = express();
+import bodyParser from 'body-parser'
+import mongoose from 'mongoose'
+import irregular from './routes/irregular'
+import regular from './routes/regular'
 
-app.use(bodyParser.json());
+const app = express()
 
-//home
+console.log('fatih')
+
+app.use(bodyParser.json())
+
+// home
 app.get('/', (req, res) => res.send('Hello World!'))
 
-//route
-app.use("/irregular", irregular);
-app.use("/regular", regular);
+// route
+app.use('/irregular', irregular)
+app.use('/regular', regular)
 
-var uri = "mongodb+srv://datamerge:2020denizli@cluster0.xl2tb.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const uri =
+  // eslint-disable-next-line max-len
+  'mongodb+srv://datamerge:2020denizli@cluster0.xl2tb.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
-
-
-var options = {
-    server: {
-        socketOptions: {
-            keepAlive: 300000,
-            connectTimeoutMS: 30000,
-        },
+const options = {
+  server: {
+    socketOptions: {
+      keepAlive: 300000,
+      connectTimeoutMS: 30000,
     },
-    replset: {
-        socketOptions: {
-            keepAlive: 300000,
-            connectTimeoutMS: 30000,
-        },
+  },
+  replset: {
+    socketOptions: {
+      keepAlive: 300000,
+      connectTimeoutMS: 30000,
     },
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-};
+  },
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}
 
-mongoose.connect(uri, options);
-var db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
+mongoose.connect(uri, options)
+const db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error:'))
 
-//listen
-var porta = process.env.PORT || 8080;
-app.listen(porta, () => console.log("Example app listening on port 8080!"));
+// listen
+const porta = process.env.PORT || 8080
+app.listen(porta, () => console.log('Example app listening on port 8080!'))

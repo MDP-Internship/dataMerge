@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon --exec babel-node ./api/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "del /f /q /s build && mkdir build",
+    "clean": "rmdir -f -q -s build && mkdir build",
     "build-babel": "babel -d ./build ./api -s",
     "build": "npm run build-babel",
-    "start": "node ./build/index.js"
+    "start": "node ./build/index.js",
+    "lint": "eslint --fix --ext .js,.jsx ."
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,8 @@
     "eslint": "^7.12.1",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "nodemon": "^2.0.6",
     "prettier": "^2.1.2"
   },
