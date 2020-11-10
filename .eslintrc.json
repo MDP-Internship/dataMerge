@@ -17,9 +17,7 @@
         "import/extensions": 0,
         "func-names": 0,
         "no-process-exit": 0,
-        "semi": 0,
+        "semi": 0
 
-        "max-len": [1, { "code": 80, "tabWidth": 4 }],
-        "no-tabs": [1, { "allowIndentationTabs": true }]
     }
 }
