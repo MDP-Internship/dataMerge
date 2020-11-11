@@ -1,6 +1,32 @@
-@host= http://localhost:3000
+@host= http://localhost:8080
 # @query=?long=39.25322010853384&lat=33.24331911328855
-GET {{host}}/irregular HTTP/1.1
+
+###
+POST {{host}}/irregular HTTP/1.1
+content-type: application/json
+
+  [
+    {
+    "id": "1",
+    "mail": "bgilstin0@wiley.com",
+    "adress": "8 Park Meadow Terrace"
+  },
+  {
+    "id": 2,
+    "mail": "omacsporran1@ebay.co.uk",
+    "adress": "24561 Fisk Lane"
+  },
+  {
+    "id": "1",
+    "name": "Ulrick",
+    "username": "umctrustrie0"
+  },
+  {
+    "id": 2,
+    "name": "Sharona",
+    "username": "swardell1"
+  }
+  ]
 
 ###
 GET {{host}}/irregular HTTP/1.1

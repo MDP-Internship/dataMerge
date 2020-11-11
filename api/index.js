@@ -6,8 +6,6 @@ import regular from './routes/regular'
 
 const app = express()
 
-console.log('fatih')
-
 app.use(bodyParser.json())
 
 // home
@@ -38,9 +36,9 @@ const options = {
   useUnifiedTopology: true,
 }
 
-mongoose.connect(uri, options)
+/* mongoose.connect(uri, options)
 const db = mongoose.connection
-db.on('error', console.error.bind(console, 'connection error:'))
+db.on('error', console.error.bind(console, 'connection error:')) */
 
 // listen
 const porta = process.env.PORT || 8080

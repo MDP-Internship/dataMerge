@@ -1,5 +1,5 @@
 {
-  "prettier/prettier": ["error"],
+  "prettier/prettier": ["warn"],
   "semi": false,
   "singleQuote": true
  
