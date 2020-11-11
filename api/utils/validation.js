@@ -11,28 +11,17 @@ export function personelInfoValidation(object) {
   const result = schema.validate(object, { abortEarly: false })
   if (result.error) {
     return {
-      // eslint-disable-next-line no-underscore-dangle
-      id: result.error._original.id,
-      message: result.error.details[0].message,
-      value: result.error.details[0].context.value,
+      res: false,
+      err: {
+        // eslint-disable-next-line no-underscore-dangle
+        id: result.error._original.id,
+        message: result.error.details[0].message,
+        value: result.error.details[0].context.value,
+      },
     }
   }
-  return true
+  return { res: true, err: null }
 }
-
-/* [
-  {
-    message: '"mail" must be a valid email',
-    path: [ 'mail' ],
-    type: 'string.email',
-    context: {
-      value: 'bgilstin0wiley.com',
-      invalids: [Array],
-      label: 'mail',
-      key: 'mail'
-    }
-  }
-] */
 
 export function isPersoneId(personelId) {
   const idArray = Joi.array().items(Joi.number().required())
@@ -41,7 +30,10 @@ export function isPersoneId(personelId) {
     const value = result.error.details[0].context.value
     const key = result.error.details[0].context.key
 
-    return `id should be in string not number => value: "${value}" key: "${key}"`
+    return {
+      res: false,
+      err: `id should be in string not number => value: "${value}" key: "${key}"`,
+    }
   }
-  return true
+  return { res: true }
 }

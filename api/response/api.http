@@ -1,5 +1,8 @@
 @host= http://localhost:8080
 # @query=?long=39.25322010853384&lat=33.24331911328855
+###
+
+POST {{host}}/regular HTTP/1.1
 
 ###
 POST {{host}}/irregular HTTP/1.1

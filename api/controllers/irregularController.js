@@ -11,21 +11,19 @@ export default function irregularController(req, res) {
 
   Helpers.dataMerge(personelData, (result, idList) => {
     try {
-      if (isPersoneId(idList) !== true) {
-        console.log(isPersoneId(idList))
-        return res.send(isPersoneId(idList))
+      if (!isPersoneId(idList).res) {
+        console.log(isPersoneId(idList).err)
+        res.send(isPersoneId(idList).err)
       }
-
-      // console.log(result)
-      // const dbIdList = IrregularServices.peopleDublicate();
-      // if (personelInfoValidation(result)) {
-      console.log(personelInfoValidation(result))
-      // return res.send(personelInfoValidation(result))
-      // }
-      // IrregularServices.peopleAdd(result)
+      if (!personelInfoValidation(...result).res) {
+        console.log(personelInfoValidation(...result).err)
+        res.send(personelInfoValidation(result).err)
+      }
+      if (isPersoneId(idList).res && personelInfoValidation(...result).res)
+        IrregularServices.peopleAdd(result)
     } catch (error) {
       util.setError(400, error)
-      return util.send(res)
+      util.send(res)
     }
   })
 }

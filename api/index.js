@@ -14,7 +14,9 @@ app.get('/', (req, res) => res.send('Hello World!'))
 // route
 app.use('/irregular', irregular)
 app.use('/regular', regular)
-
+app.use((req, res, next) => {
+  res.status(404).json('Page Not Found')
+})
 const uri =
   // eslint-disable-next-line max-len
   'mongodb+srv://datamerge:2020denizli@cluster0.xl2tb.mongodb.net/<dbname>?retryWrites=true&w=majority'
@@ -36,9 +38,9 @@ const options = {
   useUnifiedTopology: true,
 }
 
-/* mongoose.connect(uri, options)
+mongoose.connect(uri, options)
 const db = mongoose.connection
-db.on('error', console.error.bind(console, 'connection error:')) */
+db.on('error', console.error.bind(console, 'connection error:'))
 
 // listen
 const porta = process.env.PORT || 8080
