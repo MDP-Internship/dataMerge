@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --exec babel-node ./api/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rmdir -f -q -s build && mkdir build",
+    "clean": "rm -r ./build ",
     "build-babel": "babel -d ./build ./api -s",
     "build": "npm run build-babel",
     "start": "node ./build/index.js",

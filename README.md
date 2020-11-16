@@ -2,10 +2,64 @@
 
 > Toplu halde gelen düzensiz verileri id numaralarına göre eşleştirerek verileri birleştiriyor ve mongodb kaydediyor.
 
-### Link: https://peopledatamerge.herokuapp.com/
+## Link: https://peopledatamerge.herokuapp.com/
 
-- "/irregular" veriler toplanıyor.
-- "/regular" veriler gösteriliyor.
+## Route
+- POST "/irregular" veriler toplanıyor.
+- GET "/" MongoDB datalar geliyor.
+- GET "/remove" tüm dataları siler.
+
+
+## Yapılanlar
+- Başarılı kaydetme response mesajı
+
+- 404 Not Found hatası döndürme
+
+- gelen datalarda id kontrolü
+```json
+ {
+    "id": "1f",
+    "mail": "bgilstin0@wiley.com",
+    "adress": "8 Park Meadow Terrace"
+  },
+
+  // output: id should be in string not number => value: "1f" key: "0"
+```
+
+- gelen dataların doğruluğunu kontrol ediyor
+
+> mail kontrolü 
+```json
+{
+    "id": "1",
+    "mail": "bgilstin0wiley.com",
+    "adress": "8 Park Meadow Terrace"
+}
+
+  //output: 
+  {
+    "message": "\"[0].mail\" must be a valid email",
+    "value": "bgilstin0wiley.com"
+  }
+```
+
+> min-max karakter kontrolü
+
+```json
+{
+    "id": "1",
+    "name": "Ul",
+    "username": "umctrustrie0"
+}
+
+  //output: 
+  {
+    
+    "message": "\"[0].name\" length must be at least 3 characters long",
+    "value": "Ul"
+  }
+```
+
 
 ## Kurulumlar
 
@@ -83,9 +137,19 @@ username;
 ### idlerine göre düzensiz veri modellerini birleştiriyor
 
 ```javascript
-let idList = new Set(data.map((item) => item.id));
-idList.forEach((id) => {
-  let merge = Object.assign({}, ...data.filter((item) => item.id == id));
-  console.log(merge);
+
+ const idList = Array.from(new Set(_data.map((item) => item.id.toString())))
+
+    const merge = []
+    idList.forEach((id) => {
+      const data = Object.assign(
+        {},
+        ..._data.filter((item) => item.id.toString() === id)
+      )
+      merge.push(data)
+    })
+    _callback(merge, idList)
+  }
 });
+
 ```
