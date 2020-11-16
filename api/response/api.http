@@ -2,7 +2,10 @@
 # @query=?long=39.25322010853384&lat=33.24331911328855
 ###
 
-POST {{host}}/regular HTTP/1.1
+GET {{host}} HTTP/1.1
+
+###
+GET {{host}}/remove HTTP/1.1
 
 ###
 POST {{host}}/irregular HTTP/1.1
@@ -10,7 +13,7 @@ content-type: application/json
 
   [
     {
-    "id": "1",
+    "id": 1,
     "mail": "bgilstin0@wiley.com",
     "adress": "8 Park Meadow Terrace"
   },
@@ -25,14 +28,14 @@ content-type: application/json
     "username": "umctrustrie0"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Sharona",
     "username": "swardell1"
   }
   ]
 
 ###
-GET {{host}}/irregular HTTP/1.1
+POST {{host}}/irregular HTTP/1.1
 content-type: application/json
 
   [{

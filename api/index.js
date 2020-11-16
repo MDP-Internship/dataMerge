@@ -2,20 +2,26 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import irregular from './routes/irregular'
-import regular from './routes/regular'
+import remove from './routes/remove'
+import People from './model/people'
 
 const app = express()
 
 app.use(bodyParser.json())
 
 // home
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => {
+  People.find({}).then(function (people) {
+    /* find arama yapacağı alan {} hepsini */
+    res.send(people)
+  })
+})
 
 // route
 app.use('/irregular', irregular)
-app.use('/regular', regular)
+app.use('/remove', remove)
 app.use((req, res, next) => {
-  res.status(404).json('Page Not Found')
+  res.status(404).json('Not Found')
 })
 const uri =
   // eslint-disable-next-line max-len

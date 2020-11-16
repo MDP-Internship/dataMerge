@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable consistent-return */
 import Helpers from '../utils/helpers'
 import IrregularServices from '../services/irregularServices'
@@ -11,16 +12,29 @@ export default function irregularController(req, res) {
 
   Helpers.dataMerge(personelData, (result, idList) => {
     try {
+      //id string kontrolü
       if (!isPersoneId(idList).res) {
         console.log(isPersoneId(idList).err)
         res.send(isPersoneId(idList).err)
       }
-      if (!personelInfoValidation(...result).res) {
-        console.log(personelInfoValidation(...result).err)
+      // verilerin genel kurallara uygunluğu
+      if (!personelInfoValidation(result).res) {
         res.send(personelInfoValidation(result).err)
       }
-      if (isPersoneId(idList).res && personelInfoValidation(...result).res)
-        IrregularServices.peopleAdd(result)
+      //db yazdırılma işlemi
+      if (isPersoneId(idList).res && personelInfoValidation(result).res) {
+        result.forEach(async (item) => {
+          const people = await IrregularServices.peopleAdd(item)
+          if (!people) {
+            util.setError(200, 'people not found')
+            return util.send(res)
+          }
+          if (people) {
+            util.setSuccess(200, 'people all save')
+            return util.send(res)
+          }
+        })
+      }
     } catch (error) {
       util.setError(400, error)
       util.send(res)

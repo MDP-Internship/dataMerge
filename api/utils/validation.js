@@ -1,26 +1,36 @@
 import Joi from '@hapi/joi'
 
-export function personelInfoValidation(object) {
-  const schema = Joi.object({
-    id: Joi.number().required(),
-    name: Joi.string().required(),
-    username: Joi.string().required(),
-    mail: Joi.string().email().required(),
-    adress: Joi.string().required(),
+function validateError(error) {
+  error.forEach((err) => {
+    const errCode = err.code
+
+    console.log(err)
   })
+}
+
+export function personelInfoValidation(object) {
+  const personelObject = Joi.object({
+    id: Joi.number().required(),
+    name: Joi.string().required().min(3),
+    username: Joi.string().required().min(3),
+    mail: Joi.string().email().required(),
+    adress: Joi.string().required().min(3),
+  })
+
+  const schema = Joi.array().items(personelObject)
+
   const result = schema.validate(object, { abortEarly: false })
   if (result.error) {
     return {
       res: false,
       err: {
         // eslint-disable-next-line no-underscore-dangle
-        id: result.error._original.id,
-        message: result.error.details[0].message,
+        message: result.error.message,
         value: result.error.details[0].context.value,
       },
     }
   }
-  return { res: true, err: null }
+  return { res: true }
 }
 
 export function isPersoneId(personelId) {

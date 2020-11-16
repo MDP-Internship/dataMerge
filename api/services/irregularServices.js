@@ -2,7 +2,7 @@ import People from '../model/people'
 
 export default class IrregularServices {
   static peopleAdd(body) {
-    /*  const peopleAdd = People({
+    const peopleAdd = People({
       id: body.id,
       mail: body.mail,
       adress: body.adress,
@@ -10,11 +10,8 @@ export default class IrregularServices {
       username: body.username,
     })
 
-    peopleAdd
-      .save()
-      .then(() => {})
-      .catch(() => {}) */
-    console.log('yazdır')
+    peopleAdd.save().then().catch()
+    return peopleAdd
   }
 
   static async peopleDublicate() {
